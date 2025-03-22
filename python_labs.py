@@ -1,29 +1,32 @@
 def init_lab():
-    print("** Welcome to Python labs ** /n")
-    print("1. Calcular el area de un triangulo /n")
-    print("2. Calcular días del mes /n")
-    print("3. Calcular el mayor de 10 numeros /n")
-    print("4. Calcular la tabla de potencias del 1 al 10 de un numero /n")
+    print("** Welcome to Python labs **")
+    print("1. Calcular el area de un triangulo")
+    print("2. Calcular días del mes")
+    print("3. Calcular el mayor de 10 numeros")
+    print("4. Calcular la tabla de potencias del 1 al 10 de un numero")
     print("5. Validar palindromo")
-    print("6. Suma de numeros por lista /n")
-    print("7. Salir del lab /n")
+    print("6. Suma de numeros por lista")
 
-    option = int(input("Selecione la opción que desea probar :) "))
-    if(option==1):
-        area_triangulo()
-    elif(option==2):
-        dias_mes()
-    elif(option==3):
-        buscar_mayor()
-    elif(option==4):
-        potencia()
-    elif(option==5):
-        es_palindromo()
-    elif(option==6):
-        suma_numeros()
-    else:
+    try: 
+        option = int(input("Selecione la opción que desea probar "))
+        if(option==1):
+            area_triangulo()
+        elif(option==2):
+            dias_mes()
+        elif(option==3):
+            buscar_mayor()
+        elif(option==4):
+            potencia()
+        elif(option==5):
+            es_palindromo()
+        elif(option==6):
+            suma_numeros()
+        else:
+            print("Selecion invalida")
+            init_lab()
+    except:
         print("Selecion invalida")
-
+        init_lab()
 
 def area_triangulo():
     base = int(input("Ingrese la base del triangulo: "))
@@ -60,13 +63,23 @@ def potencia():
         print(f"Potencia de {numero} a la {count}: {numero**count}")
 
 def es_palindromo(): 
-    palabra = str(input("Ingrese una palabra"))
+    palabra = str(input("Ingrese una palabra: "))
+    palabra = palabra.lower().replace(" ", "").replace(",", "").replace(".", "")
     if(palabra == palabra[::-1]):
         print("True")
+        return
     print("False")
 
 def suma_numeros():
-    suma = []
+    listSuma = []
 
+    while True:
+        numero = input("Ingrese un numero para sumar o escriba 'fin' para salir: ")
+        if(numero != 'fin'):
+            listSuma.append(int(numero))
+        else: 
+            break
+
+    print(f"La suma de los numeros de la lista es: {sum(listSuma)}")
 
 init_lab()
