@@ -68,7 +68,7 @@ calcular_ganador(candidatos_por_votos)
 
 def visualizar_resultados(candidatos):
     for i in range (len(candidatos)):
-        candidatos_por_votos[i][4] = format(candidatos_por_votos[i][2]/(len(candidatos))*100, ".2f")
+        candidatos_por_votos[i][4] = format(candidatos_por_votos[i][2]/(len(votos))*100, ".2f")
         print(f"{candidatos_por_votos[i][0]}. {candidatos_por_votos[i][1]} con {candidatos_por_votos[i][2]} votos y un porcentaje de {candidatos_por_votos[i][4]}%")
 
     if(len(candidatos_mas_votados) == 1 and candidatos_mas_votados[0][0] != 3):
